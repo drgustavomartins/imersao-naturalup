@@ -2,7 +2,7 @@
 
 Landing page da Imersão Full Face em Volta Redonda.
 
-- Datas: 30·31 AGO + 01 SET 2026
+- Datas: 30·31 JUL + 01 AGO 2026
 - Local: Volta Redonda / RJ
 - Vagas: 9 (turma única)
 
