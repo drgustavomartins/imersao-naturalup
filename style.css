@@ -137,7 +137,7 @@ strong { font-weight: 600; }
 .hero-grid {
   max-width: 1240px;
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.6fr);
   gap: 56px;
   align-items: center;
   text-align: left;
@@ -150,23 +150,67 @@ strong { font-weight: 600; }
 .hero-grid .hero-cta { justify-content: flex-start; }
 .hero-grid .hero-foot { text-align: left; }
 
-.hero-video { width: 100%; }
+/* Vídeo vertical 9:16 (telinha de celular) */
+.hero-video {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .hero-video .video-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 14px;
+  max-width: 320px;
+  aspect-ratio: 1536 / 2752;
+  border-radius: 22px;
   overflow: hidden;
   box-shadow:
-    0 24px 60px -20px rgba(27, 71, 77, 0.45),
-    0 8px 24px -8px rgba(27, 71, 77, 0.25);
+    0 32px 70px -22px rgba(27, 71, 77, 0.55),
+    0 12px 28px -10px rgba(27, 71, 77, 0.30);
   background: #000;
 }
 .hero-video .video-wrapper iframe {
   position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
 }
+
+/* Poster custom (capa antes do play) */
+.video-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: #000;
+  cursor: pointer;
+  overflow: hidden;
+  display: block;
+}
+.video-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.5s ease, filter 0.4s ease;
+}
+.video-poster:hover img,
+.video-poster:focus-visible img {
+  transform: scale(1.02);
+  filter: brightness(1.05);
+}
+/* Play button overlay sutil pra reforçar a ação (a arte já tem um play, esse é só hover-feedback) */
+.video-play-btn {
+  display: none;
+}
+.video-poster:focus-visible {
+  outline: 3px solid #D4A24C;
+  outline-offset: 4px;
+}
 .hero-video-caption {
-  margin-top: 14px;
+  margin-top: 16px;
   font-size: 13px;
   letter-spacing: 0.04em;
   color: var(--muted);
@@ -187,6 +231,7 @@ strong { font-weight: 600; }
   .hero-grid .hero-facts { justify-content: center; }
   .hero-grid .hero-cta { justify-content: center; }
   .hero-grid .hero-foot { text-align: center; }
+  .hero-video .video-wrapper { max-width: 280px; }
 }
 
 .kicker {

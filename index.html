@@ -214,15 +214,16 @@ function trackMetaContact() {
     </div>
 
     <div class="hero-video">
-      <div class="video-wrapper">
-        <iframe
-          src="https://www.youtube.com/embed/k8A3Ywel7KU?rel=0&modestbranding=1"
-          title="Método Natural UP — a estética que liberta · Dr. Gustavo Martins"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-          loading="lazy"></iframe>
+      <div class="video-wrapper" id="videoWrapper">
+        <button class="video-poster" id="videoPoster" type="button" aria-label="Reproduzir vídeo: Método Natural UP">
+          <img src="https://i.ytimg.com/vi/k8A3Ywel7KU/maxresdefault.jpg" alt="Método Natural UP · A estética que liberta" width="1280" height="720" loading="eager" decoding="async" onerror="this.onerror=null;this.src='thumbnail_video.png';" />
+          <span class="video-play-btn" aria-hidden="true">
+            <svg viewBox="0 0 64 64" width="64" height="64">
+              <circle cx="32" cy="32" r="30" fill="none" stroke="#D4A24C" stroke-width="1.8"/>
+              <path d="M26 20 L46 32 L26 44 Z" fill="#D4A24C"/>
+            </svg>
+          </span>
+        </button>
       </div>
       <p class="hero-video-caption">Assista à visão por trás do método · 6 min</p>
     </div>
@@ -437,6 +438,27 @@ function trackMetaContact() {
       }
     });
   });
+</script>
+
+<!-- Vídeo: lazy-load com poster custom -->
+<script>
+  (function(){
+    const poster = document.getElementById('videoPoster');
+    const wrapper = document.getElementById('videoWrapper');
+    if (!poster || !wrapper) return;
+    poster.addEventListener('click', function(){
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube.com/embed/k8A3Ywel7KU?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+      iframe.title = 'Método Natural UP — a estética que liberta · Dr. Gustavo Martins';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+      wrapper.innerHTML = '';
+      wrapper.appendChild(iframe);
+      // Tracking (se Meta Pixel estiver carregado)
+      if (typeof fbq === 'function') { fbq('trackCustom', 'VideoPlay', { content_name: 'Hero - Metodo NaturalUP' }); }
+    });
+  })();
 </script>
 
 </body>
