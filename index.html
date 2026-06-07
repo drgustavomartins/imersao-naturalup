@@ -560,5 +560,84 @@ function trackMetaContact() {
   })();
 </script>
 
+
+<!-- ============ WHATSAPP FLUTUANTE ============ -->
+<style>
+.wa-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  animation: wa-bounce 2.5s ease-in-out 3s 3;
+}
+.wa-float:hover .wa-bubble {
+  background: #1DA851;
+  transform: scale(1.08);
+}
+.wa-float:hover .wa-label {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+.wa-bubble {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+  transition: background 0.2s, transform 0.2s;
+  flex-shrink: 0;
+}
+.wa-bubble svg {
+  width: 30px;
+  height: 30px;
+  fill: #fff;
+}
+.wa-label {
+  background: #0B1D3A;
+  color: #fff;
+  font-family: 'Switzer', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 8px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(8px);
+  transition: opacity 0.25s, transform 0.25s;
+  pointer-events: none;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+}
+@keyframes wa-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@media (max-width: 480px) {
+  .wa-float { bottom: 20px; right: 18px; }
+  .wa-label { display: none; }
+}
+</style>
+
+<a href="https://wa.me/5521995523509?text=Quero%20saber%20mais%20sobre%20a%20Imers%C3%A3o%20Full%20Face%20em%20Volta%20Redonda."
+   class="wa-float"
+   target="_blank"
+   rel="noopener"
+   aria-label="Falar no WhatsApp com a equipe"
+   onclick="trackMetaContact(); return trackWhatsApp()">
+  <span class="wa-label">Tire sua dúvida agora</span>
+  <span class="wa-bubble">
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.027 7.774L0 32l8.437-2.01A15.934 15.934 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.257 13.257 0 0 1-6.74-1.833l-.484-.287-5.006 1.194 1.215-4.876-.315-.5A13.26 13.26 0 0 1 2.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.907c-.397-.199-2.35-1.16-2.715-1.292-.364-.132-.629-.199-.894.2-.265.397-1.028 1.292-1.26 1.558-.232.265-.464.298-.861.1-.397-.2-1.678-.619-3.196-1.973-1.18-1.053-1.978-2.353-2.21-2.75-.232-.398-.025-.613.175-.811.18-.178.398-.464.597-.696.199-.232.265-.398.398-.663.132-.265.066-.497-.033-.696-.1-.199-.894-2.155-1.225-2.95-.322-.773-.65-.668-.894-.68l-.762-.013c-.265 0-.696.1-1.06.497-.364.398-1.392 1.36-1.392 3.317 0 1.957 1.425 3.847 1.624 4.112.199.265 2.803 4.277 6.79 5.995.949.41 1.69.655 2.268.838.953.303 1.821.26 2.507.158.765-.114 2.35-.961 2.682-1.889.332-.928.332-1.723.232-1.889-.099-.166-.364-.265-.761-.464z"/>
+    </svg>
+  </span>
+</a>
+
 </body>
 </html>
